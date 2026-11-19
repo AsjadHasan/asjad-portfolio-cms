@@ -1,0 +1,28 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+myenv/
+.pytest_cache/
+
+# Django Local Files
+*.sqlite3
+staticfiles/
+media/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Logs & Backups
+*.log
+backups/
+
+# OS / Editors
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

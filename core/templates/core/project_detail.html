@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% block title %}{{ project.title }} | Asjad Hasan{% endblock %}
+{% block content %}
+<section class="section detail-hero">
+  <div class="container detail-container">
+    <a class="back-link" href="{% url 'core:home' %}#projects">← Back to projects</a>
+    <p class="eyebrow"><span class="section-index">PROJECT /</span> {{ project.get_category_display|upper }}</p>
+    <h1 class="detail-title">{{ project.title }}</h1>
+    <p class="detail-summary">{{ project.summary }}</p>
+    <div class="chip-list detail-chips">{% for tech in project.technology_list %}<span>{{ tech }}</span>{% endfor %}</div>
+    <div class="detail-cta">{% if project.github_url %}<a class="button button-primary" href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">View code on GitHub ↗</a>{% endif %}{% if project.demo_url %}<a class="button button-outline" href="{{ project.demo_url }}" target="_blank" rel="noopener noreferrer">Live demo ↗</a>{% endif %}</div>
+    <div class="detail-visual project-art project-art-{{ project.category }}"><div class="project-art-grid"></div><span class="project-art-symbol" aria-hidden="true">{% if project.category == 'support' %}⌘{% elif project.category == 'python' %}{ }{% elif project.category == 'web' %}&lt;/&gt;{% else %}▦{% endif %}</span><span class="project-art-small">CASE STUDY / {{ project.get_category_display|upper }}</span></div>
+    <div class="detail-content-grid"><div><p class="eyebrow">THE OVERVIEW</p><h2>About this project</h2><div class="detail-prose">{{ project.description|linebreaks }}</div></div><aside class="detail-sidebar"><p class="eyebrow">AT A GLANCE</p><dl><div><dt>Category</dt><dd>{{ project.get_category_display }}</dd></div><div><dt>Tools & technology</dt><dd>{{ project.technologies }}</dd></div></dl>{% if project.feature_list %}<h3>Key features</h3><ul>{% for feature in project.feature_list %}<li>{{ feature }}</li>{% endfor %}</ul>{% endif %}</aside></div>
+    <div class="detail-footer"><a href="{% url 'core:home' %}#projects" class="text-link">← All projects</a><a href="{% url 'core:home' %}#contact" class="text-link">Let's connect ↗</a></div>
+  </div>
+</section>
+{% endblock %}

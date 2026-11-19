@@ -1,0 +1,53 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09121f">
+  <meta name="description" content="Asjad Hasan — portfolio featuring IT support, Python automation, ERP knowledge, and practical technical projects.">
+  <title>{% block title %}Asjad Hasan | IT Support • Python • ERP{% endblock %}</title>
+  <link rel="icon" type="image/svg+xml" href="{% static 'core/img/favicon.svg' %}">
+  <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+  <script defer src="{% static 'core/js/main.js' %}"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{% url 'core:home' %}" aria-label="Asjad Hasan — homepage">
+        <span class="brand-mark">A<span class="brand-mark-dot">.</span></span>
+        <span class="brand-word">ASJAD<span class="text-accent">/</span>DEV</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="{% url 'core:home' %}#about">About</a>
+        <a href="{% url 'core:home' %}#skills">Skills</a>
+        <a href="{% url 'core:home' %}#projects">Projects</a>
+        <a href="{% url 'core:home' %}#experience">Journey</a>
+        <a href="{% url 'core:home' %}#contact" class="mobile-contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle icon-button" id="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+          <span aria-hidden="true" id="theme-icon">☀</span>
+        </button>
+        <a class="nav-contact button button-small button-outline" href="{% url 'core:home' %}#contact">Let's talk <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle icon-button" id="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+          <span class="hamburger"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">{% block content %}{% endblock %}</main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="{% url 'core:home' %}"><span class="brand-mark">A<span class="brand-mark-dot">.</span></span><span class="brand-word">ASJAD/DEV</span></a>
+      <p>Built with Django, Python & thoughtful details.</p>
+      <span>© {% now "Y" %} Asjad Hasan</span>
+    </div>
+  </footer>
+</body>
+</html>
