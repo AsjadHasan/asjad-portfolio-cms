@@ -1971,3 +1971,62 @@ img {
 #blog .project-body > p {
     min-height: 0;
 }
+
+
+/* ==========================================
+   GLOBAL LANGUAGE SWITCHER
+   ========================================== */
+
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    flex-shrink: 0;
+}
+
+.language-option {
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--muted);
+    padding: 7px 9px;
+    font-size: 11px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+
+.language-option:hover {
+    color: var(--accent);
+}
+
+.language-option.is-active {
+    background: rgba(99, 232, 212, .12);
+    color: var(--accent);
+}
+
+.language-switcher > span {
+    color: var(--subtle);
+    font-size: 11px;
+}
+
+/* Responsive language switcher */
+@media (max-width: 650px) {
+    .header-actions {
+        gap: 7px;
+    }
+
+    .language-switcher {
+        padding: 2px;
+        gap: 2px;
+    }
+
+    .language-option {
+        padding: 6px;
+        font-size: 10px;
+    }
+}
