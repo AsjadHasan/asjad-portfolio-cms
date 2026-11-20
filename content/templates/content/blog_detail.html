@@ -1,0 +1,91 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}
+{{ post.title_en }} | Asjad Hasan
+{% endblock %}
+
+{% block content %}
+
+<section class="section projects-section" style="padding-top: 40px;">
+
+
+    <div class="container">
+
+        <!-- Back to Blog -->
+        <a href="{% url 'content:blog_list' %}"
+           class="text-link">
+            ← Back to Blog
+        </a>
+
+        <!-- Blog Header -->
+        <div class="section-heading"
+             style="margin-top: 40px;">
+
+            <div>
+                <p class="eyebrow">
+                    TECH BLOG / LEARNING JOURNAL
+                </p>
+
+                <h1 class="section-title">
+                    {{ post.title_en }}
+                </h1>
+
+                <p class="section-description">
+                    {{ post.summary_en }}
+                </p>
+
+                <p class="project-category">
+                    Published:
+                    {{ post.created_at|date:"F d, Y" }}
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Full Blog Article -->
+        <article class="project-card"
+                 style="max-width: 900px; margin: 0 auto;">
+
+            <!-- Blog Cover Image -->
+            {% if post.cover_image %}
+                <div class="blog-detail-cover">
+                    <img
+                        src="{{ post.cover_image.url }}"
+                        alt="Cover image for {{ post.title_en }}"
+                        style="display: block; width: 100%; height: auto;"
+                    >
+                </div>
+            {% endif %}
+
+
+            <div class="project-body">
+
+                <div class="blog-article-content"
+                     style="line-height: 1.9;">
+
+                    {{ post.body_en|linebreaks }}
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Back Navigation -->
+        <div style="margin-top: 40px;">
+
+            <a href="{% url 'content:blog_list' %}"
+               class="button button-outline">
+
+                ← All Blog Posts
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
